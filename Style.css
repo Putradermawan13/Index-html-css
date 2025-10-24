@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8
+  <meta name="viewport" content
+ <title></title>
+
+  <h1> 
+      selamat datang
+  </h1>
+ 
+<div class="tree-frame">
+  <span class="corner tl"></span>
+  <span class="corner tr"></span>
+  <span class="corner br"></span>
+  <span class="corner bl"></span>
+
+  <div class="content">
+    <p style="font-size:100px:"> lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+
+
+  
+<body>
+</html>
+
+h1{
+    color: darkred;
+    
+    border: 7px solid skyblue
+}
+body{
+    text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(180deg, #e8f5e4, #f6fff2);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================
+   Bingkai Pohon Fullscreen
+========================= */
+.tree-border {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  border: 30px solid #4a2e18; /* batang kayu utama */
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.25);
+  background: #fbfff7;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* Tekstur batang kayu */
+.tree-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 0 3px,
+      rgba(0, 0, 0, 0.02) 3px 6px
+    ),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0 5px,
+      rgba(0, 0, 0, 0.03) 5px 10px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Konten tengah halaman */
+.page-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 40px;
+  text-align: center;
+  background: rgba(255, 255, 250, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.page-content h1 {
+  color: #214a1f;
+  margin-bottom: 20px;
+}
+
+.page-content p {
+  color: #2d372a;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   Daun di setiap sudut bingkai
+========================= */
+.corner {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 24%, rgba(120, 180, 60, 0.98) 0 18%, transparent 19%),
+    radial-gradient(circle at 70% 22%, rgba(80, 150, 40, 0.96) 0 20%, transparent 21%),
+    radial-gradient(circle at 45% 65%, rgba(120, 200, 80, 0.88) 0 26%, transparent 27%),
+    radial-gradient(circle at 30% 75%, rgba(50, 120, 30, 0.9) 0 14%, transparent 15%),
+    radial-gradient(circle at 75% 70%, rgba(90, 170, 45, 0.9) 0 17%, transparent 18%);
+  border-radius: 50%;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.18));
+}
+
+/* Ranting kecil */
+.corner::after {
+  content: "";
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  width: 40px;
+  height: 12px;
+  background: linear-gradient(90deg, #3c2413, #51321a);
+  border-radius: 6px;
+  transform-origin: left center;
+  transform: rotate(-18deg);
+  box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.18);
+  opacity: 0.95;
+}
+
+/* Posisi daun di sudut */
+.tl {
+  top: -25px;
+  left: -25px;
+  transform: rotate(0deg) scale(1.1);
+}
+.tr {
+  top: -25px;
+  right: -25px;
+  transform: rotate(90deg) scale(1.1);
+}
+.br {
+  bottom: -25px;
+  right: -25px;
+  transform: rotate(180deg) scale(1.1);
+}
+.bl {
+  bottom: -25px;
+  left: -25px;
+  transform: rotate(270deg) scale(1.1);
+}
+
+/* =========================
+   Responsif Mobile
+========================= */
+@media (max-width: 600px) {
+  .tree-border {
+    border-width: 10px;
+  }
+
+  .corner {
+    width: 80px;
+    height: 80px;
+  }
+
+  .page-content {
+    margin: 40px auto;
+    padding: 24px;
